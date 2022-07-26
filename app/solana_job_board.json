@@ -1,0 +1,65 @@
+{
+  "version": "0.1.0",
+  "name": "solana_job_board",
+  "instructions": [
+    {
+      "name": "addJobPost",
+      "accounts": [
+        {
+          "name": "account",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "company",
+          "type": "string"
+        },
+        {
+          "name": "position",
+          "type": "string"
+        },
+        {
+          "name": "location",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "JobPost",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "company",
+            "type": "string"
+          },
+          {
+            "name": "position",
+            "type": "string"
+          },
+          {
+            "name": "location",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "7cp6bK3S7VoM5rmhE1Qcqk2KZCQxTmD4GU8QoauZYVTp"
+  }
+}
