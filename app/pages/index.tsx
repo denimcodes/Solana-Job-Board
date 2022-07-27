@@ -1,3 +1,4 @@
+import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -9,6 +10,7 @@ import { JobPost } from "../models/JobPost";
 
 const Home: NextPage = () => {
 	const[jobPosts, setJobPosts] = useState<Array<JobPost>>();
+	const { publicKey } = useWallet();
 	const program = useAnchor();
 
 	useEffect(() => {
@@ -20,8 +22,10 @@ const Home: NextPage = () => {
 			jobPost.account.position as string,
 			 jobPost.account.location as string)));
 		}
+		if(publicKey) {
 		fetchJobPosts();
-	}, [program])
+		}
+	}, [program, publicKey])
 	
 	return (
 		<div>

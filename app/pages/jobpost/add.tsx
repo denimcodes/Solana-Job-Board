@@ -126,7 +126,7 @@ const AddJobPost: NextPage = () => {
 			)}
 			{showSuccess && (
 				<div className="toast">
-					<div className="alert alert-warning">Job post has been added</div>
+					<div className="alert alert-success">Job post has been added</div>
 				</div>
 			)}
 		</div>
